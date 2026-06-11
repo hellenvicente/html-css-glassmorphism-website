@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #121212; /* Fundo escuro para destacar o vidro */
+}
+
+/* Container principal */
+.container{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- AJUSTE: Círculos jogados para trás de tudo --- */
+.circle{
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(5px);
+  z-index: 1; /* Força os círculos a ficarem no fundo */
+}
+
+.circle-one{
+  height: 300px;
+  width: 300px;
+  top: 10%;
+  left: 15%;
+  background: linear-gradient(#ff0057, #e64a19);
+}
+
+.circle-two{
+  height: 250px;
+  width: 250px;
+  bottom: 10%;
+  right: 15%;
+  background: linear-gradient(#2196f3, #00bcd4);
+}
+
+/* Estilo da Barra de Navegação */
+nav{
+  position: relative;
+  z-index: 10; /* Fica no topo */
+  width: 80%;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.05); 
+  
+  /* --- AJUSTE: Adicionado suporte para Safari --- */
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px); 
+  
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 30px;
+}
+
+nav .navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo a{
+  font-size: 25px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar .nav-links{
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li{
+  margin: 0 15px;
+}
+
+.nav-links li a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover{
+  color: #ff0057;
+}
+
+/* Conteúdo Principal (Cartão de Vidro) */
+.main-content{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5; /* Fica acima dos círculos (z-index: 1) e abaixo do menu */
+  padding: 0 20px; /* Evita que o cartão cole nas bordas em telas médias */
+}
+
+.text-box{
+  width: 100%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.05);
+  
+  /* --- AJUSTE: Adicionado suporte para Safari --- */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+  color: #fff;
+  text-align: center;
+}
+
+.text-box h2{
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.text-box p{
+  font-size: 18px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.btn{
+  display: inline-block; /* Garante que o padding funcione bem no link */
+  padding: 12px 30px;
+  background: #fff;
+  color: #121212;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn:hover{
+  background: #ff0057;
+  color: #fff;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  nav { 
+    width: 90%; 
+    padding: 15px 20px;
+  }
+  .nav-links { display: none; } 
+  
+  /* --- AJUSTE: Responsividade mais fluida para o card --- */
+  .text-box { 
+    padding: 30px 20px;
+  }
+  .text-box h2 {
+    font-size: 30px;
+  }
+}
